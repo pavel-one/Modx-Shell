@@ -1,0 +1,104 @@
+body {
+  font-family: 'Roboto';
+}
+
+
+#resp, .resp-file-block {
+  background: #eee;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
+  margin: 20px;
+  padding: 15px;
+  overflow: auto;
+}
+#resp-file {
+  min-height: 500px;
+}
+.result-block .resp-file-block {
+  position: relative;
+}
+.result-block #resp {
+  position: relative;
+}
+.result-block .loader {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/loader.svg) rgba(0,0,0,0.1) no-repeat;
+    background-position: center;
+    background-size: 150px;
+    z-index: 999;
+}
+#resp #back {
+    cursor: pointer;
+    background: #fff;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    transition: .3s;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100px;
+    border: 2px solid transparent;
+    margin: auto;
+}
+#resp #back:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(/img/back.svg) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    margin-right: 10px;
+}
+#resp #back:hover {
+  border: 2px solid  #555;
+}
+.result-block #resp ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 20px;
+}
+.result-block #resp li {
+  list-style: none;
+  padding: 15px;
+}
+.result-block #resp .folder {
+  display: block;
+}
+.result-block #resp li {
+    transition: .3s;
+    text-align: center;
+    width: 158px;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.result-block #resp li:hover {
+  transition: .3s;
+  background: #fff;
+  cursor: pointer;
+}
+.result-block #resp .folder::before, .result-block #resp .file::before {
+  content: '';
+  width: 70px;
+  height: 70px;
+  background: url('/img/folder.svg');
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  text-align: center;
+  margin: auto;
+}
+.result-block #resp .file::before {
+  background: url('/img/file.svg');
+}
