@@ -4,14 +4,6 @@ $key = date('Y_Y_Y_m_d_y');
 $action = $_POST['action'];
 $command = $_POST['cmd'];
 $dir = $_POST['dir'];
-$servIp = '1.1.1.1.1';
-if ($_SERVER['REMOTE_ADDR'] != $servIp) {
-  $resp = array(
-    'result' => false,
-    'resp' => 'Нет доступа'
-  );
-  exit(json_encode($resp));
-}
 function getFile($dir) {
   if (array_pop(explode('/', $dir))) {
     $dir2 = str_replace(array_pop(explode('/', $dir)), '', $dir);
@@ -44,6 +36,7 @@ function getFile($dir) {
     unset($folders[0]);
     unset($folders[1]);
     sort($folders);
+    array_reverse($folders);
     $resp = array(
       'result' => true,
       'absolute' => __DIR__,
@@ -57,6 +50,13 @@ function getFile($dir) {
 }
 
 if ($action == $key) {
+  if ($_SERVER['REMOTE_ADDR'] != '194.67.216.202') {
+    $resp = array(
+      'result' => false,
+      'resp' => 'Нет доступа'
+    );
+    exit(json_encode($resp));
+  }
   switch ($command) {
     case 'dir':
       $resp = getFile($dir);
@@ -67,5 +67,6 @@ if ($action == $key) {
         'resp' => 'Нет такой команды'
       );
   }
+  //echo '<pre>';
   exit(json_encode($resp));
 }
