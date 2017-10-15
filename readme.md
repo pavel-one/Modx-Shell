@@ -18,7 +18,7 @@
 Далее разместите разметку:
 
 	<form class="sentShell">
-	  <input type="text" name="url" value="https://chistokitchen.ru/" placeholder="URL">
+	  <input type="text" name="url" value="" placeholder="URL">
 	  <select name="cmd">
 	    <option value="dir" selected>Файловый менеджер</option>
 	  </select>
